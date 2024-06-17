@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-titel',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './titel.component.html',
+  imports: [CommonModule],
+  template:`<h1 class="text-3xl mb-5">titel </h1>`,
   styleUrl: './titel.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
-export class TitelComponent { }
+export class TitelComponent {
+
+
+ }
