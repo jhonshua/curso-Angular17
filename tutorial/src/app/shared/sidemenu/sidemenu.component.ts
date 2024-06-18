@@ -17,10 +17,10 @@ export class SidemenuComponent {
   .map((route) => route.children ?? [])
   .flat()
   .filter(router => router && router.path)
-  .filter(router=> !router.path?.includes(':'));
+  .filter(router=> !router.path?.includes(':'))
+
 
   constructor() {
-
 
   }
 }
