@@ -1,7 +1,3 @@
-
-
-
-
 export interface UsersResponse {
   page:        number;
   per_page:    number;
@@ -21,8 +17,15 @@ export interface User {
 }
 
 
-
 export interface Support {
   url:  string;
   text: string;
 }
+
+
+export interface UserResponse {
+  data:    User;
+  support: Support;
+}
+
+

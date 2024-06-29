@@ -1,25 +1,20 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { User, UsersResponse } from '../interfaces/req-response';
+import type { User, UserResponse, UsersResponse } from '../interfaces/req-response';
 import { HttpClient } from '@angular/common/http';
-import { delay } from 'rxjs';
-
+import { delay, map } from 'rxjs';
 
 interface State{
   users: User[];
   loading: boolean;
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
 
-
 export class UsersService {
 
-
   private http = inject(HttpClient)
-
 
   #state = signal<State>({
     loading: true,
@@ -40,8 +35,16 @@ export class UsersService {
          users: res.data,
       })
 
-
     });
+
+  }
+
+
+  getUserById( id: string){
+    this.http.get<UserResponse>(`https://reqres.in/api/users${id}`)
+    .pipe(
+      delay(1500),
+      map( resp => resp.data))
   }
 
 }
